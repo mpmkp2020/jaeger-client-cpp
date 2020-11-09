@@ -65,7 +65,7 @@ matrix:
       -DJAEGERTRACING_PLUGIN=ON -DBUILD_TESTING=ON -DHUNTER_CONFIGURATION_TYPES=Release'"
 before_install:
 - eval "${MATRIX_EVAL}"
-- sudo snap install cmake
+- sudo snap install cmake --classic
 - cmake --version
 script:
 - CMAKE_OPTIONS="${CMAKE_OPTIONS}" ./scripts/build.sh
