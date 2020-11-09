@@ -65,7 +65,7 @@ matrix:
       -DJAEGERTRACING_PLUGIN=ON -DBUILD_TESTING=ON -DHUNTER_CONFIGURATION_TYPES=Release'"
 before_install:
 - eval "${MATRIX_EVAL}"
-- apt install -y cmake
+- sudo apt install -y cmake
 script:
 - CMAKE_OPTIONS="${CMAKE_OPTIONS}" ./scripts/build.sh
 after_success:
