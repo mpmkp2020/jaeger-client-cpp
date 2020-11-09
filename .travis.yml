@@ -67,6 +67,7 @@ before_install:
 - eval "${MATRIX_EVAL}"
 - sudo snap install cmake --classic
 - whereis cmake
+- export PATH=/snap/bin:$PATH
 - cmake --version
 script:
 - CMAKE_OPTIONS="${CMAKE_OPTIONS}" ./scripts/build.sh
