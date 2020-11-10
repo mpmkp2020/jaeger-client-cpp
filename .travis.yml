@@ -36,6 +36,11 @@ matrix:
           sudo apt-get update && sudo apt-get install wget;
           wget https://releases.linaro.org/components/toolchain/binaries/4.9-2016.02/aarch64-linux-gnu/gcc-linaro-4.9-2016.02-x86_64_aarch64-linux-gnu.tar.xz;
           sudo tar -C / -xf gcc-linaro-4.9-2016.02-x86_64_aarch64-linux-gnu.tar.xz;
+          echo "Test message"
+          gcc --version
+          which gcc
+          whereis  g++-4.9
+          echo "Test message"
           #export PATH=$PATH:$PWD/gcc-linaro-aarch64-linux-gnu-4.9-2014.08_linux/bin
           sudo snap install cmake --classic;
           export PATH=/snap/bin:$PATH;
