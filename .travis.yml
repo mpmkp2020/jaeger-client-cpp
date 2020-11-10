@@ -1,9 +1,6 @@
 language: cpp
 sudo: true
 dist: trusty
-arch:
-  - arm64
-  - amd64
 addons:
   apt:
     packages: &1
@@ -11,6 +8,18 @@ addons:
 matrix:
   include:
   - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-4.9
+    env:
+    - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && CMAKE_OPTIONS='-DCMAKE_BUILD_TYPE=Debug
+      -DBUILD_SHARED_LIBS=ON -DJAEGERTRACING_COVERAGE=ON'"
+  - os: linux
+    arch: arm64
     addons:
       apt:
         sources:
@@ -33,6 +42,18 @@ matrix:
     - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && CMAKE_OPTIONS='-DCMAKE_BUILD_TYPE=Debug
       -DBUILD_SHARED_LIBS=ON -DJAEGERTRACING_COVERAGE=ON'"
   - os: linux
+    arch: arm64
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-5
+    env:
+    - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && CMAKE_OPTIONS='-DCMAKE_BUILD_TYPE=Debug
+      -DBUILD_SHARED_LIBS=ON -DJAEGERTRACING_COVERAGE=ON'"
+  - os: linux
     addons:
       apt:
         sources:
@@ -44,6 +65,30 @@ matrix:
     - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && CMAKE_OPTIONS='-DCMAKE_BUILD_TYPE=Debug
       -DBUILD_SHARED_LIBS=ON -DJAEGERTRACING_COVERAGE=ON'"
   - os: linux
+    arch: arm64
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-6
+    env:
+    - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && CMAKE_OPTIONS='-DCMAKE_BUILD_TYPE=Debug
+      -DBUILD_SHARED_LIBS=ON -DJAEGERTRACING_COVERAGE=ON'"
+  - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - *1
+        - g++-7
+    env:
+    - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_OPTIONS='-DCMAKE_BUILD_TYPE=Debug
+      -DBUILD_SHARED_LIBS=ON -DJAEGERTRACING_COVERAGE=ON'"
+  - os: linux
+    arch: arm64
     addons:
       apt:
         sources:
