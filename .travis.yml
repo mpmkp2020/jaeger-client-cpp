@@ -39,7 +39,7 @@ matrix:
           echo "Test message"
           gcc --version
           which gcc
-          whereis  g++-4.9
+          whereis  "g++-4.9"
           echo "Test message"
           #export PATH=$PATH:$PWD/gcc-linaro-aarch64-linux-gnu-4.9-2014.08_linux/bin
           sudo snap install cmake --classic;
