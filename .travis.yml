@@ -66,11 +66,11 @@ matrix:
 before_install:
 - eval "${MATRIX_EVAL}"
 - |
-  if [ `uname -m` = "aarch64" ]
-    sudo snap install cmake --classic
-    export PATH=/snap/bin:$PATH
+  if [ `uname -m` = "aarch64" ]; then
+    sudo snap install cmake --classic;
+    export PATH=/snap/bin:$PATH;
   else
-    mkdir cmake-download && cd cmake-download && curl -O https://cmake.org/files/v3.10/cmake-3.10.0-rc5-Linux-x86_64.sh && bash cmake-3.10.0-rc5-Linux-x86_64.sh --skip-license && cd ..
+    mkdir cmake-download && cd cmake-download && curl -O https://cmake.org/files/v3.10/cmake-3.10.0-rc5-Linux-x86_64.sh && bash cmake-3.10.0-rc5-Linux-x86_64.sh --skip-license && cd ..;
   fi
 script:
 - CMAKE_OPTIONS="${CMAKE_OPTIONS}" ./scripts/build.sh
